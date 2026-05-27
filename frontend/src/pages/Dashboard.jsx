@@ -38,12 +38,12 @@ export default function Dashboard() {
   };
 
   const handleMoveTask = async (task) => {
-    const nextStatus = task.status === "Done" ? "In Progress" : task.status === "Todo" ? "In Progress" : "Done";
+    const nextStage = task.stage === "Done" ? "In Progress" : task.stage === "Todo" ? "In Progress" : "Done";
     try {
-      await taskService.updateTask(task.id, { status: nextStatus });
+      await taskService.updateTask(task.id, { stage: nextStage });
       fetchTasks();
     } catch (err) {
-      setError("Unable to update task status.");
+      setError("Unable to update task stage.");
     }
   };
 
@@ -57,7 +57,7 @@ export default function Dashboard() {
   };
 
   const groupedTasks = statusColumns.reduce((acc, status) => {
-    acc[status] = tasks.filter((task) => task.status === status);
+    acc[status] = tasks.filter((task) => task.stage === status);
     return acc;
   }, {});
 
