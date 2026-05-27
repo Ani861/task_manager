@@ -1,21 +1,21 @@
 import { useState } from "react";
 
-const statusOptions = ["Todo", "In Progress", "Done"];
+const stageOptions = ["Todo", "In Progress", "Done"];
 
 export default function TaskForm({ initialData = {}, onSubmit, submitLabel = "Create Task" }) {
   const [title, setTitle] = useState(initialData.title || "");
   const [description, setDescription] = useState(initialData.description || "");
-  const [status, setStatus] = useState(initialData.status || "Todo");
+  const [stage, setStage] = useState(initialData.stage || "Todo");
 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!title.trim()) {
       return;
     }
-    onSubmit({ title: title.trim(), description: description.trim(), status });
+    onSubmit({ title: title.trim(), description: description.trim(), stage });
     setTitle("");
     setDescription("");
-    setStatus("Todo");
+    setStage("Todo");
   };
 
   return (
@@ -50,16 +50,16 @@ export default function TaskForm({ initialData = {}, onSubmit, submitLabel = "Cr
             />
           </div>
           <div className="mb-3">
-            <label htmlFor="taskStatus" className="form-label">
-              Status
+            <label htmlFor="taskStage" className="form-label">
+              Stage
             </label>
             <select
-              id="taskStatus"
+              id="taskStage"
               className="form-select"
-              value={status}
-              onChange={(e) => setStatus(e.target.value)}
+              value={stage}
+              onChange={(e) => setStage(e.target.value)}
             >
-              {statusOptions.map((option) => (
+              {stageOptions.map((option) => (
                 <option key={option} value={option}>
                   {option}
                 </option>
