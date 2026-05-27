@@ -93,7 +93,7 @@ export default function Dashboard() {
                             <TaskCard key={task.id} task={task} onMove={handleMoveTask} onDelete={handleDeleteTask} />
                           ))
                         ) : (
-                          <div className="card border-dashed text-center py-5">
+                          <div className="card border border-secondary border-opacity-25 rounded-3 text-center py-5">
                             <div className="card-body text-muted">No tasks in this column.</div>
                           </div>
                         )}
