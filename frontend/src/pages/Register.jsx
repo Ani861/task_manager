@@ -21,7 +21,7 @@ export default function Register() {
     setLoading(true);
 
     try {
-      const response = await authService.register({ username: email, password });
+      const response = await authService.register({ email, password });
       const token = response.data?.access_token || response.data?.token;
       if (token) {
         login(token);
@@ -54,11 +54,11 @@ export default function Register() {
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                   <label htmlFor="registerEmail" className="form-label">
-                    Username
+                    Email
                   </label>
                   <input
                     id="registerEmail"
-                    type="text"
+                    type="email"
                     className="form-control"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}

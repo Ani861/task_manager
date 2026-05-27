@@ -46,11 +46,11 @@ export default function Login() {
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                   <label htmlFor="loginEmail" className="form-label">
-                    Username
+                    Email
                   </label>
                   <input
                     id="loginEmail"
-                    type="text"
+                    type="email"
                     className="form-control"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
