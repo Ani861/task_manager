@@ -1,0 +1,19 @@
+# Environment files
+backend/.env
+frontend/.env
+
+# Python
+__pycache__/
+*.pyc
+
+# VS Code
+.vscode/
+
+# SQLite Database
+backend/task_manager.db
+
+# Node
+frontend/node_modules/
+
+# Build files
+frontend/dist/
